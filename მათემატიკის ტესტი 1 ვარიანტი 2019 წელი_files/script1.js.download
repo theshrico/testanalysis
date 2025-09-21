@@ -1,0 +1,24 @@
+const menuIcon = document.querySelector('.menu-icon');
+const dropdowns = document.querySelectorAll('.dropdown');
+
+menuIcon.addEventListener('click', () => {
+  dropdowns.forEach(dropdown => {
+    dropdown.classList.remove('active');
+  });
+});
+
+dropdowns.forEach(dropdown => {
+  const dropdownButton = dropdown.querySelector('a');
+  dropdownButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    dropdown.classList.toggle('active');
+  });
+});
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', () => {
+  dropdowns.forEach(dropdown => {
+    dropdown.classList.remove('active');
+  });
+});
